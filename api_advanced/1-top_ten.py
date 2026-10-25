@@ -18,10 +18,6 @@ def top_ten(subreddit):
         headers=HEADERS,
         allow_redirects=False,
     )
-    if response.status_code != 200:
-        print(None)
-        return
-
     data = response.json().get("data")
     if not isinstance(data, dict):
         print(None)
