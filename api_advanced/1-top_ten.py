@@ -12,15 +12,11 @@ HEADERS = {
 
 def top_ten(subreddit):
     """Print up to ten hot-post titles, or None if the subreddit is invalid."""
-    url = "{}/r/{}/hot.json".format(
-        BASE_URL, requests.utils.quote(subreddit, safe="")
-    )
+    url = "{}/r/{}/hot.json?limit=10".format(BASE_URL, subreddit)
     response = requests.get(
         url,
         headers=HEADERS,
-        params={"limit": 10},
         allow_redirects=False,
-        timeout=10,
     )
     if response.status_code != 200:
         print(None)
