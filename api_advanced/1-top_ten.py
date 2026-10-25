@@ -6,7 +6,7 @@ import requests
 
 BASE_URL = "https://www.reddit.com"
 HEADERS = {
-    "User-Agent": "My-User-Agent"
+    "User-Agent": "python:alu-scripting:1.0 (by /u/aalier1-dot)"
 }
 
 
@@ -18,7 +18,20 @@ def top_ten(subreddit):
         headers=HEADERS,
         allow_redirects=False,
     )
-    data = response.json().get("data")
+    if response.status_code != 200:
+        print(None)
+        return
+
+    try:
+        payload = response.json()
+    except requests.exceptions.JSONDecodeError:
+        print(None)
+        return
+
+    if not isinstance(payload, dict):
+        print(None)
+        return
+    data = payload.get("data")
     if not isinstance(data, dict):
         print(None)
         return
