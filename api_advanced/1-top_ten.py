@@ -24,7 +24,7 @@ def top_ten(subreddit):
 
     try:
         payload = response.json()
-    except requests.exceptions.JSONDecodeError:
+    except ValueError:
         print(None)
         return
 
