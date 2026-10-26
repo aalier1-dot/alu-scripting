@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+# Connect to the server using the school private key.
+
+if [[ -z "${1:-}" ]]; then
+    printf 'Usage: %s <server-ip>\n' "$0" >&2
+    exit 2
+fi
+
+exec ssh -i ~/.ssh/school "ubuntu@$1"
