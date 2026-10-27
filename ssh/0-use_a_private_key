@@ -7,3 +7,4 @@ if [[ -z "${1:-}" ]]; then
 fi
 
 exec ssh -i ~/.ssh/school "ubuntu@$1"
+

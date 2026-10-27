@@ -11,3 +11,4 @@ The scripts are intended to run on Ubuntu. Install `2-ssh_config` as `~/.ssh/con
 ## Task 3
 
 Add the assignment's provided public key to the server user's `~/.ssh/authorized_keys`. This requires the server IP and SSH access to that server; neither was included in the project details provided here.
+
